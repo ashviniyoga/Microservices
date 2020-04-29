@@ -15,7 +15,7 @@ public class RateController {
 	  RestTemplate restTemplate(){
 	    return new RestTemplate();
 	  }
-	
+	 
 	 @Autowired
 	  RestTemplate rest;
 		 
