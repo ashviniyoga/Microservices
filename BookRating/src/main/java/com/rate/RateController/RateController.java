@@ -22,8 +22,8 @@ public class RateController {
 	@RequestMapping("/rating")
 	public String rating() {
 		System.out.println("Inside the controller rating()");
-		//String r = rest.getForObject("http://BookDetailInfo:8086/bookapi/book",String.class);
-		return "Rating Control";
+		String r = rest.getForObject("http://BookDetailInfo:8086/bookapi/getId/2",String.class);
+		return r + "Rating Control in Book Rate Application";
 		
 	}
 

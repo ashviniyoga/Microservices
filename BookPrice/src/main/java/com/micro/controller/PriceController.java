@@ -24,10 +24,12 @@ public class PriceController {
 	
 	@RequestMapping(value="/price")
 	public String pricestart() {
-		String a = rest.getForObject("http://BookDetailInfo/bookapi/book", String.class);
+		System.out.println("Inside the price controller of BookPrice application");
 		
-		System.out.println("Inside the price controller");
-		return "Price Controller" + a ;
+		String rate = rest.getForObject("http://BookRatingInfo:8088/ratingapi/rating", String.class);
+		//return "Price Controller" + a ;
+		String bookid = rest.getForObject("http://BookDetailInfo/bookapi/getId/5", String.class);
+		return "Price Controller of BookPrice Application" + rate + " " + bookid;
 	}
 	
 	@RequestMapping("/getId/{id}")

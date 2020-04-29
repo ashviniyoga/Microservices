@@ -22,16 +22,19 @@ public class BookController {
 	
 	@RequestMapping(value="/book")
 	public String bookstart() {
-	String b = rest.getForObject("http://BookPriceInfo/priceapi", String.class);
-	//String r = rest.getForObject("http://BookRatingInfo:8088/ratingapi/rating", String.class);
+		System.out.println("Before calling the book price");
+	String price = rest.getForObject("http://BookPriceInfo/priceapi/price", String.class);
+	String rate = rest.getForObject("http://BookRatingInfo:8088/ratingapi/rating", String.class);
 	
 		
-		System.out.println("Inside the book controller");
-		return b + " Book details";
+		System.out.println("Inside the book controller - book details application");
+		return price + "== Combination of Book Price and Book details APplication :))" +rate;
+	//	return "book details";
 	}
 	
 	@RequestMapping("/getId/{id}")
 	public  Optional<Book> BookDetail(@PathVariable("id") int id) {
+		System.out.println("Inside the book detail getID");
 		return 	bookRepo.findById(id);
 	}
 	
